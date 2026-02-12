@@ -120,7 +120,7 @@ Os scripts em `src/` documentam o processo de treinamento e avaliação do model
 
 ## Como executar a aplicação
 
-A aplicação pode ser acessada via navegador clicando [aqui]((https://dsantosr.github.io/facial-expressions-detector/))
+A aplicação pode ser acessada via navegador clicando [aqui](https://dsantosr.github.io/facial-expressions-detector/)
 
 ### Executar localmente
 
