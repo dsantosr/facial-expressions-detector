@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+
+    <title>Facial Emotion Color Theme</title>
+    <link rel="stylesheet" href="styles.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@4.22.0/dist/tf.min.js"></script>
+
+    <script src="init-webgl.js"></script>
+
+    <script src="webgl-diagnostic.js"></script>
+
+    <script defer src="EmotionDetectorFactory.js?v=2"></script>
+    <script defer src="MobileNetDetector.js?v=2"></script>
+</head>
+
+<body>
+    <div id="app-container">
+
+        <!-- Status -->
+        <section id="section-status">
+            <div id="status-overlay" style="display: none;">
+                <h1 id="emotion-label">Waiting...</h1>
+                <div id="confidence-meter">
+                    <div id="confidence-bar"></div>
+                </div>
+                <p id="confidence-text">Confidence: 0%</p>
+                <p id="fps-counter" style="font-size: 0.9em; opacity: 0.8; margin-top: 10px;">FPS: 0</p>
+            </div>
+        </section>
+
+        <!-- Video -->
+        <section id="section-video">
+            <div id="video-wrapper">
+                <video id="webcam" autoplay playsinline muted></video>
+                <canvas id="crop-canvas" width="224" height="224" style="display: none;"></canvas>
+            </div>
+        </section>
+
+        <!-- Start Button -->
+        <section id="section-controls">
+            <button id="start-btn">
+                Start Camera
+            </button>
+        </section>
+
+    </div>
+
+    <script defer src="script.js?v=2"></script>
+</body>
+
+</html>

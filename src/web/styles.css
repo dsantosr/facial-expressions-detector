@@ -1,0 +1,202 @@
+:root {
+    --color-bg-transition: 0.8s ease-in-out;
+    --font-primary: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+
+    /* Emotion Palette */
+    --color-happiness: #FDC830;
+    --color-sadness: #0083B0;
+    --color-anger: #FF4B2B;
+    --color-surprise: #00f2fe;
+    --color-fear: #8E2DE2;
+    --color-neutrality: #E0E0E0;
+
+    /* UI Elements */
+    --color-text: #ffffff;
+    --color-text-shadow: rgba(0, 0, 0, 0.6);
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    height: 100vh;
+    font-family: var(--font-primary);
+    background-color: var(--color-neutrality);
+    transition: background-color var(--color-bg-transition);
+    color: var(--color-text);
+    overflow: hidden;
+}
+
+#app-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    overflow-y: auto;
+}
+
+section {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+/* --- Section 1: Status Overlay --- */
+#section-status {
+    flex: 0 0 auto;
+}
+
+#status-overlay {
+    text-align: center;
+    padding: 2.5rem;
+    background: rgba(0, 0, 0, 0.7);
+    /* Darker for better contrast */
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    width: 100%;
+    max-width: 600px;
+    animation: fadeIn 0.5s ease-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+#emotion-label {
+    margin: 0;
+    font-size: 3.5rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    text-shadow: 0 4px 12px var(--color-text-shadow);
+    
+    /* Smooth text transitions */
+    transition: opacity 0.3s ease-in-out;
+}
+
+#confidence-meter {
+    background: rgba(0, 0, 0, 0.4);
+    height: 10px;
+    margin: 20px 0 10px 0;
+    overflow: hidden;
+}
+
+#confidence-bar {
+    height: 100%;
+    width: 0%;
+    background: #fff;
+    transition: width 0.3s ease-out;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.6);
+}
+
+#confidence-text {
+    margin: 0;
+    font-size: 1rem;
+    opacity: 0.95;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+/* --- Section 2: Video --- */
+#section-video {
+    flex: 1 1 auto;
+    min-height: 400px;
+    /* Increased height */
+}
+
+#video-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 600px;
+    aspect-ratio: 4/3;
+    overflow: hidden;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+    border: 3px solid rgba(255, 255, 255, 0.4);
+    background: #000;
+}
+
+video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: scaleX(-1);
+    display: block;
+}
+
+/* --- Section 3: Controls --- */
+#section-controls {
+    flex: 0 0 auto;
+    margin-bottom: 10px;
+}
+
+#start-btn {
+    padding: 18px 50px;
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #333;
+    background: #fff;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    transition: transform 0.1s ease, background 0.2s;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+#start-btn:active {
+    transform: scale(0.95);
+}
+
+#start-btn:disabled {
+    background: #ccc;
+    color: #666;
+    cursor: not-allowed;
+}
+
+/* --- Mobile Fixes --- */
+@media (max-width: 600px) {
+    #app-container {
+        padding: 10px;
+    }
+
+    #emotion-label {
+        font-size: 2.5rem;
+    }
+
+    #status-overlay {
+        padding: 2rem;
+    }
+
+    #video-wrapper {
+        max-width: 100%;
+    }
+
+    #section-video {
+        min-height: 300px;
+    }
+}
+
+/* Hide canvas used for cropping */
+#crop-canvas {
+    display: none;
+}
