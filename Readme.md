@@ -2,7 +2,7 @@
 
 Este projeto consiste em uma aplicação web desenvolvida para detectar emoções humanas em tempo real a partir de vídeo, utilizando técnicas de processamento de imagens e aprendizado de máquina.
 
-O dataset **FERPlus** foi utilizado e, das 8 classes originais, optamos por manter apenas 6 classes: **raiva, desprezo, felicidade, neutralidade, tristeza e surpresa**
+O dataset **FERPlus** foi utilizado e, das 8 classes originais, optou-se por manter apenas 6 classes: **raiva, desprezo, felicidade, neutralidade, tristeza e surpresa**
 
 ## Tecnologias utilizadas
 - HTML5
@@ -14,12 +14,9 @@ O dataset **FERPlus** foi utilizado e, das 8 classes originais, optamos por mant
 
 ## Arquitetura
 
-O projeto foi estruturado de forma a separar claramente as etapas de treinamento do modelo e inferência em tempo real, seguindo boas práticas de aprendizado de máquina e engenharia de software.
-
 ```
 Treinamento (Python) → Exportação para TensorFlow.js → Inferência (Browser)
 ```
-
 
 ###  Camadas da Arquitetura
 
@@ -123,8 +120,7 @@ Os scripts em `src/` documentam o processo de treinamento e avaliação do model
 
 ## Como executar a aplicação
 
-A aplicação pode ser acessada via navegador clicando [aqui](https://facial-emotion-detection-e9vn.vercel.app/)
-
+A aplicação pode ser acessada via navegador clicando [aqui]((https://dsantosr.github.io/facial-expressions-detector/))
 
 ### Executar localmente
 
