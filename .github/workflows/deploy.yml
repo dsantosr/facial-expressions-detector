@@ -35,9 +35,10 @@ jobs:
     needs: deploy
     steps:
       - name: Delete Old Artifacts
-        uses: actions/delete-package-versions@v4 # Clean up old packages if any (optional)
+        uses: actions/delete-package-versions@v4
         with: 
            package-name: 'facial-expressions-detector'
+           package-type: 'container'
            min-versions-to-keep: 2
         continue-on-error: true
       
